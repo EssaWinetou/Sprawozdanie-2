@@ -1,0 +1,66 @@
+#include <iostream>
+#include <conio.h>
+#include <sstream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main() {
+    const int maxList = 20;
+    int menu, nothing = 0;
+    char confirm;
+    string todo, todos[maxList] = {};
+    for(int i = 0; i < maxList; i++) {
+            todos[i] = "";
+    }
+do{
+    system("cls");
+    cout<<"Lista rzeczy do zrobienia\n";
+    cout<<"=============================\n";
+    cout<<"1. wpisz rekord\n ";
+    cout<<"2. zobacz liste rekordow\n";
+    cout<<"3. wyjscie\n";
+    cout<<"=============================\n";
+    cout<<"Wybierz opcje w menu : "; cin>>menu;
+    cout<<"=============================\n";
+    system("cls");
+    switch(menu) {
+        case 1 : 
+        cout<<"Wpisz swoje zajecie :\n"; cin>>todo;
+        cout<<"\nzapisac?  (y/n) :"; cin>>confirm;
+        if(confirm == 'y'){
+            for(int i = 0; i < maxList; i++) {
+                if(todos[i] == "") {
+                    todos[i] = todo;
+                    break;
+                }
+            }
+        }
+    break;
+    case 2 :
+        cout<<"Lista rzeczy do zrobienia\n";
+        cout<<"=======================\n";
+        for(int i = 0; i < maxList; i++) {
+            if(todos[i] == ""){
+                nothing = nothing + 1;
+            }
+        }
+        if (nothing != maxList) {
+            for(int i = 0; i < maxList; i++) {
+                if(todos[i] != "") {
+                    cout<<i+1<<". "<< todos[i] <<"\n";
+                    
+                }
+            }
+        } else{
+            cout<<"blad \n";
+        }
+        cout<<"=====================================\n";
+        cout<<"nacisnij enter by wrocic do menu\n";
+        getch();
+        break;
+    }
+}while(menu > 0 && menu < 3);
+}
+
+    
